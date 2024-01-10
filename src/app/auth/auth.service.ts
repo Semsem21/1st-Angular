@@ -12,14 +12,6 @@ export class AuthService {
     localStorage.setItem('token', token);
   }
 
-  destroy() {
-    localStorage.clear();
-  }
-
-  remove(key: string) {
-    localStorage.removeItem(key);
-  }
-
   getToken() {
     return localStorage.getItem('token');
   }
@@ -36,7 +28,7 @@ export class AuthService {
       this.setToken('asdasdqweqw213kmkjlon21u931');
       setTimeout(() => {
         localStorage.removeItem('token');
-      }, 2000);
+      }, 1000);
       return of(true);
     }
     this.router.navigate(['/products']);
