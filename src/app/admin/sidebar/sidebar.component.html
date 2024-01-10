@@ -1,0 +1,62 @@
+<aside>
+  <div class="brand-wrapper">
+    <a routerLink="/" class="brand text-center m-auto">
+      <h1 class="font-bold text-white text-2xl text-center sm:text-lg">
+        Store
+      </h1>
+    </a>
+
+    <button
+      type="button"
+      class="bg-gray-400 rounded transition ease-in-out"
+      (click)="sidebarCollapsedHandler()"
+    >
+      <i
+        class="bi text-white hover:text-cyan-400"
+        [ngClass]="
+          sidebarIsCollapsed ? 'bi-arrow-left-short' : 'bi-arrow-right-short'
+        "
+      ></i>
+    </button>
+  </div>
+
+  <ul class="menu-links">
+    <li class="cursor-pointer">
+      <a
+        [routerLink]=""
+        routerLinkActive="active"
+        class="menu-item"
+        ariaCurrentWhenActive="page"
+      >
+        <i class="bi bi-columns-gap sm:!text-sm"></i>
+        <span class="sm:!text-xs">Available Items</span>
+      </a>
+    </li>
+
+    <li>
+      <a
+        href=""
+        class="menu-item sub-menu"
+        aria-expanded="false"
+        (click)="subMenuToggleHandler($event)"
+      >
+        <i class="bi bi-diagram-3"></i>
+        <span class="sm:!text-xs"> Categories </span>
+      </a>
+
+      <ul class="sub-menu-item">
+        <li>
+          <a
+            class="menu-item"
+            [routerLink]=""
+            routerLinkActive="active"
+            ariaCurrentWhenActive="page"
+            *ngFor="let item of categories"
+          >
+            <span class="capitalize">{{ item }}</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</aside>

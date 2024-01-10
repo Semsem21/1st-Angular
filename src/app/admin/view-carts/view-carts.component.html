@@ -1,0 +1,101 @@
+<div class="relative">
+  <h2
+    class="text-xl text-center font-bold text-gray-900 mt-3 mb-6 xl:text-lg sm:text-md sm:mb-1"
+  >
+    Order Requests
+  </h2>
+
+  <form
+    [formGroup]="form"
+    class="flex items-center gap-x-8 justify-center my-3 sm:gap-x-2.5"
+  >
+    <div class="flex-col justify-start">
+      <div
+        class="flex justify-start items-center gap-x-3 my-2 2xl:gap-x-2 xs:gap-x-0.5"
+      >
+        <label
+          for="inp"
+          class="w-[100px] animate-pulse 2xl:w-[90px] sm:text-sm sm:w-[80px] sm:font-semibold xs:text-xs xs:w-[65px]"
+          >Start Date</label
+        >
+        <input
+          type="date"
+          formControlName="start"
+          class="border border-gray-400 rounded-sm sm:w-[111px] xs:w-[111px] text-sm"
+          id="inp"
+        />
+      </div>
+
+      <div
+        class="flex justify-start items-center gap-x-3 my-2 2xl:gap-x-2 xs:gap-x-1"
+      >
+        <label
+          for="inpu"
+          class="w-[100px] animate-pulse 2xl:w-[90px] sm:text-sm sm:w-[80px] sm:font-semibold xs:text-xs xs:w-[65px]"
+          >End Date</label
+        >
+        <input
+          type="date"
+          formControlName="end"
+          class="border border-gray-400 rounded-sm sm:w-[111px] xs:w-[111px] text-sm"
+          id="inpu"
+        />
+      </div>
+    </div>
+
+    <button
+      class="border border-gray-500 bg-gray-200 hover:bg-cyan-200 hover:border-cyan-200 py-3 px-2.5 rounded-full xs:text-sm sm:py-1 sm:px-0.5 sm:text-sm"
+      (click)="applyFilter()"
+    >
+      Find
+    </button>
+  </form>
+
+  <div
+    class="flex-col justify-center items-center mt-4 mb-3 overflow-y-auto overflow-x-hidden max-h-[511px] min-h-[511px] lg:h-[411px]"
+  >
+    <div class="flex items-center justify-around text-center">
+      <p
+        class="relative left-[25px] font-bold text-lg 2xl:text-base xs:text-sm"
+      >
+        Date
+      </p>
+      <p
+        class="relative left-[5px] font-bold text-lg 2xl:text-base sm:left-[25px] xl:left-[25px] xs:text-sm xs:left-[20px]"
+      >
+        Quantity
+      </p>
+      <p
+        class="relative -left-[22px] font-bold text-lg 2xl:text-base xl:left-[0] xs:text-sm"
+      >
+        Action
+      </p>
+    </div>
+
+    <div
+      class="flex items-center justify-around text-center my-2 xl:text-sm sm:text-xs"
+      *ngFor="let item of carts; let index = index"
+    >
+      <p class="w-[150px]">{{ item.date | date : "longDate" }}</p>
+      <p class="w-[66px] sm:relative sm:right-[10px] xs:right-[5px]">
+        {{ item.products.length }}
+      </p>
+      <div>
+        <button
+          class="border border-red-500 bg-red-300 hover:bg-red-500 hover:border-red-200 rounded-md py-1 px-3 text-black mr-2 xl:mr-1 xl:px-1.5 xs:px-0.5 xs:mr-[1px]"
+          (click)="deleteCart(item.id)"
+        >
+          Delete
+        </button>
+        <button
+          class="border border-gray-400 bg-gray-200 hover:bg-cyan-200 hover:border-cyan-200 rounded-md py-1 px-3 text-black ml-2 xl:ml-1 xl:px-1.5 xs:px-0.5 xs:ml-[1px]"
+          data-toggle="modal"
+          data-target="#viewCart"
+          (click)="view(index)"
+        >
+          View
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

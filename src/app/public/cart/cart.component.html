@@ -1,0 +1,106 @@
+<app-header />
+
+<div class="min-h-dvh max-w-screen mx-auto flex items-center justify-center">
+  <div class="w-[80%] border-gray-300 border shadow-md py-5 px-7">
+    <h1 class="text-center text-4xl font-bold my-9 py-5">Shopping Cart</h1>
+
+    <div class="flex justify-around items-center my-7">
+      <p class="text-center text-xl capitalize">
+        You have
+        <label class="animate-ping text-red-700 text-xl">
+          {{ cartProducts.length }}
+        </label>
+        item in your Cart
+      </p>
+      <span
+        class="text-xl cursor-pointer hover:bg-cyan-200 text-black shadow-md py-2 bg-gray-300 border border-b-gray-300 px-3 rounded-xl"
+        (click)="clearCart()"
+        >Clear Shopping Cart</span
+      >
+    </div>
+
+    <table class="text-center mx-auto mt-[50px] mb-[20px]">
+      <thead>
+        <tr>
+          <th class="font-semibold text-center text-xl"></th>
+          <th class="font-semibold text-center text-xl">Name</th>
+          <th class="font-semibold text-center text-xl">Price</th>
+          <th class="font-semibold text-center text-xl">Quantity</th>
+          <th class="font-semibold text-center text-xl">Total</th>
+          <th class="font-semibold text-center text-xl"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let item of cartProducts; let index = index">
+          <td class="text-center align-middle">
+            <img
+              class="w-[80px] h-[80px] rounded-full"
+              src="{{ item.item.image }}"
+              alt=""
+            />
+          </td>
+          <td class="font-medium text-lg">{{ item.item.title }}</td>
+          <td class="font-medium text-lg">{{ item.item.price }} L.E</td>
+          <td class="">
+            <div class="flex items-center justify-between">
+              <button
+                class="w-9 h-9 bg-gray-200 border-gray-400 border hover:border-cyan-200 hover:bg-cyan-200 rounded-full text-xl"
+                (click)="addAmount(index)"
+              >
+                +
+              </button>
+              <input
+                class="border border-gray-500 text-center font-medium text-lg rounded-lg mx-4"
+                type="number"
+                (change)="detectChange()"
+                [(ngModel)]="item.quantity"
+                min="1"
+              />
+              <button
+                class="w-9 h-9 bg-gray-200 border-gray-400 border hover:border-cyan-200 hover:bg-cyan-200 rounded-full text-xl"
+                (click)="minsAmount(index)"
+              >
+                -
+              </button>
+            </div>
+          </td>
+          <td>{{ item.item.price * item.quantity }} L.E</td>
+          <td>
+            <button
+              class="border border-red-500 bg-red-500 py-2 px-4 text-white rounded-3xl"
+              (click)="deleteProduct(index)"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th>Total : {{ total }} LE</th>
+          <th>
+            <button
+              class="border border-green-600 bg-green-600 py-2 px-4 text-white rounded-3xl"
+              (click)="addCart()"
+            >
+              Order Now
+            </button>
+          </th>
+        </tr>
+      </tfoot>
+    </table>
+    <div
+      class="text-black text-center w-fit bg-cyan-400 mx-auto py-2 px-5 rounded-xl"
+      role="alert"
+      *ngIf="success"
+    >
+      <strong>Well done!</strong> Your Order is Successfully Send
+    </div>
+  </div>
+</div>

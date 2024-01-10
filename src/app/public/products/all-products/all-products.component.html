@@ -1,0 +1,36 @@
+<app-header />
+
+<div class="mx-auto bg-transparent max-w-screen m-4">
+  <div class="flex my-5 gap-x-3 items-center justify-center">
+    <label for="" class="text-xl font-semibold sm:text-base xs:text-sm">
+      Categories
+    </label>
+
+    <select
+      (change)="filterCategory($event)"
+      class="w-[250px] border border-mainBorder sm:w-[200px] xs:w-[130px]"
+    >
+      <option value="all" selected>All</option>
+      <option value="{{ item }}" *ngFor="let item of categories">
+        {{ item }}
+      </option>
+    </select>
+  </div>
+
+  <div
+    class="w-full px-6 grid grid-cols-4 lg:grid-cols-3 md:grid-cols-2 gap-6 sm:grid-cols-1 lg:gap-4 md:gap-3 md:max-w-[80%] md:mx-auto"
+    *ngIf="!loading"
+  >
+    <div
+      className="w-full bg-white text-black p-4 border border-gray-300 rounded-lg overflow-hidden  "
+      *ngFor="let item of products"
+    >
+      <app-each-product class="" [data]="item" (item)="addToCart($event)">
+      </app-each-product>
+    </div>
+  </div>
+
+  <div class="text-center w-full" *ngIf="loading">
+    <app-spinner></app-spinner>
+  </div>
+</div>

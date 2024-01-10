@@ -1,0 +1,66 @@
+<app-header />
+<div class="min-h-dvh max-w-screen mx-auto flex items-center justify-center">
+  <div
+    class="flex items-center justify-center gap-x-[100px] max-w-[80%] xl:gap-[75px] lg:gap-[50px] xl:flex-col"
+    *ngIf="!loading"
+  >
+    <div
+      class="h-[450px] w-[2000px] border-b-[5px] border-x-[2px] rounded-full overflow-hidden shadow-2xl border-cyan-400 shadow-cyan-400 flex items-center justify-center xl:w-[500px] sm:w-[280px]"
+    >
+      <img
+        class="max-w-full max-h-full bg-white"
+        src="{{ data.image }}"
+        alt=""
+      />
+    </div>
+
+    <ul class="grid gap-y-7 xl:gap-y-4 lg:gap-2">
+      <li class="text-lg text-gray-600 xl:text-base lg:text-sm">
+        <span
+          class="font-bold text-2xl inline-block text-black xl:text-lg xs:text-base"
+          >Title :
+        </span>
+        {{ data.title }}
+      </li>
+      <li class="text-lg text-gray-600 xl:text-base lg:text-sm">
+        <span
+          class="font-bold text-2xl inline-block text-black xl:text-lg xs:text-base"
+          >Category :
+        </span>
+        {{ data.category }}
+      </li>
+      <li class="text-lg text-gray-600 xl:text-base lg:text-sm">
+        <span
+          class="font-bold text-2xl inline-block text-black xl:text-lg xs:text-base"
+          >Description :
+        </span>
+        {{ data.description }}
+      </li>
+      <li class="text-lg text-gray-600 xl:text-base lg:text-sm">
+        <span
+          class="font-bold text-2xl inline-block text-black xl:text-lg xs:text-base"
+          >Rate :
+        </span>
+        {{ data.rating.rate }}
+      </li>
+      <li class="text-lg text-gray-600 xl:text-base lg:text-sm">
+        <span
+          class="font-bold text-2xl inline-block text-black xl:text-lg xs:text-base"
+          >Count :
+        </span>
+        {{ data.rating.count }}
+      </li>
+      <li class="text-lg text-gray-600 xl:text-base lg:text-sm">
+        <span
+          class="font-bold text-2xl inline-block text-black xl:text-lg xs:text-base"
+          >Price :
+        </span>
+        {{ data.price }} LE
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="text-center">
+  <app-spinner *ngIf="loading"></app-spinner>
+</div>

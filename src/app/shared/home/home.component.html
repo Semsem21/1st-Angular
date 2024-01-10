@@ -1,0 +1,55 @@
+<app-header />
+
+<div
+  class="max-w-screen mx-auto p-5 flex items-center justify-center max-h-dvh min-h-dvh"
+>
+  <div class="">
+    <div
+      class="border border-gray-400 rounded-full w-max mx-auto px-4 py-1.5 my-2 sm:text-sm xs:text-xs xs:px-2.5"
+    >
+      <p class="flex items-center gap-5 text-black xs:gap-3">
+        Welcome In My First Angular WebSite
+        <a
+          href="https://islam-mohamed.vercel.app/"
+          class="font-semibold text-cyan-400 animate-bounce text-xs cursor-pointer"
+        >
+          Find It Out
+
+          <span aria-hidden="true">&rarr;</span>
+        </a>
+      </p>
+    </div>
+
+    <div class="text-center flex flex-col gap-3 items-center my-4 capitalize">
+      <h1 class="text-black font-bold text-6xl py-2 px-5 sm:text-4xl">
+        Store & Admin
+      </h1>
+
+      <p class="px-4 py-1 sm:text-sm">
+        Take Into consideration - This is my First
+        <span class="text-cyan-500"> "Angular" </span> Project ..
+        <br />
+        <span class="text-cyan-500 animate-pulse block mt-2">
+          I hope You Guys Like It
+        </span>
+      </p>
+
+      <div class="flex items-center justify-center gap-5">
+        <a
+          [routerLink]="'/products'"
+          class="rounded-lg border border-gray-500 py-1 px-5 bg-gray-500 text-white outline-none hover:bg-cyan-300 hover:border-cyan-300"
+        >
+          Go Shopping
+        </a>
+
+        <a
+          [routerLink]="'/login'"
+          class="text-sm font-semibold leading-6 cursor-pointer hover:text-cyan-400"
+        >
+          I'm Admin
+          <span aria-hidden="true"> → </span></a
+        >
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,21 @@
+<div class="flex">
+  <label
+    for="selec"
+    class="w-[100px] text-center text-black xl:w-[90px] sm:w-[80px]"
+    >{{ title }} :</label
+  >
+  <select
+    class="border border-gray-300 rounded w-[180px] xl:w-[150px] lg:w-[220px] lg:ml-[10px] sm:w-[200px] xs:w-[150px]"
+    id="selec"
+    (change)="detectChanges($event)"
+  >
+    <option value="all" *ngIf="all" selected>All</option>
+    <option
+      value="{{ option }}"
+      [selected]="option == select"
+      *ngFor="let option of data"
+    >
+      {{ option }}
+    </option>
+  </select>
+</div>

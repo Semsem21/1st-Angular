@@ -1,0 +1,58 @@
+<div
+  class="w-full bg-white text-black p-4 border border-gray-300 rounded-lg overflow-hidden"
+>
+  <div class="w-full relative">
+    <div class="h-[250px] overflow-hidden">
+      <img
+        src="{{ data.image }}"
+        alt=""
+        class="max-w-full h-full w-full max-h-full object-contain object-center scale-90 hover:scale-100 transition-transform duration-300 cursor-pointer"
+        routerLink="/details/{{ data.id }}"
+      />
+    </div>
+
+    <div class="flex-col items-center">
+      <h4
+        class="text-base text-center font-semibold pt-0.5 pb-1 max-h-[50px] min-h-[50px] text-balance overflow-hidden md:text-sm sm:text-base xs:text-sm"
+      >
+        {{ data.title }}
+      </h4>
+      <p
+        class="text-xs text-gray-600 text-start overflow-hidden h-[50px] mt-1 mb-1.5 text-ellipsis text-balance"
+      >
+        {{ data.description }}
+      </p>
+    </div>
+  </div>
+
+  <div class="flex items-center justify-between">
+    <div>
+      <button
+        class="font-medium text-black rounded-xl hover:bg-emerald-100 duration-300 mt-2 px-2 py-0.5 border border-mainBorder animate-pulse xl:text-sm"
+        *ngIf="!addButton"
+        (click)="addButton = true"
+      >
+        Add To Cart
+      </button>
+
+      <div class="flex items-center gap-x-4 xl:gap-x-1" *ngIf="addButton">
+        <input
+          class="border border-mainBorder w-[75px] rounded-lg mt-2 px-2 py-0.5 xl:w-[60px] lg:px-1 lg:py-0 lg:[45px]"
+          type="number"
+          [(ngModel)]="amount"
+        />
+        <button
+          class="font-medium text-black rounded-xl bg-cyan-200 duration-300 mt-2 px-2 py-0.5 border border-mainBorder lg:mt-1 lg:px-1 lg:text-sm"
+          (click)="add(); addButton = false"
+        >
+          Add
+        </button>
+      </div>
+    </div>
+
+    <span
+      class="font-medium text-black rounded-xl bg-cyan-200 duration-300 mt-2 px-2 py-0.5 border border-mainBorder animate-pulse xl:text-sm"
+      >{{ data.price }} L.E
+    </span>
+  </div>
+</div>

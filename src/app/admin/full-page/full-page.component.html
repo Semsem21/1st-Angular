@@ -1,0 +1,11 @@
+<div
+  class="flex w-full h-full items-start gap-x-2 font-sans sm:gap-x-1 xs:gap-x-0.5"
+>
+  <app-sidebar
+    class="sidebar"
+    aria-expanded="true"
+    (sidebarCollapsed)="onSidebarCollapsed($event)"
+  />
+
+  <app-dashboard class="w-[85%] flex-1 mr-2 p-2 self-center sm:mr.5 sm:p.5" />
+</div>
