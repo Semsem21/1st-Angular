@@ -60,8 +60,4 @@ export class SidebarComponent implements OnInit {
       }
     );
   }
-
-  filterCategory(event: any) {
-    event.target.value;
-  }
 }
