@@ -1,0 +1,99 @@
+<app-header />
+
+<div class="min-h-dvh bg-transparent flex justify-center items-center">
+  <div
+    class="relative flex flex-col z-50 w-[40%] xl:w-[60%] lg:w-[75%] px-7 py-3 h-full bg-white rounded-xl shadow-lg shadow-gray-500 lg:px-5"
+  >
+    <h2
+      class="text-2xl text-center py-2 mb-2 md:text-lg md:mb-0.5 md:py-0.5 xs:text-base"
+    >
+      Here We Go
+    </h2>
+
+    <p class="text-sm text-center xs:text-xs">
+      Enter your credentials to access your account
+    </p>
+
+    <div class="my-7">
+      <button
+        type="button"
+        class="text-base border border-mainBorder py-3 rounded-xl w-full hover:bg-emerald-100 hover:border-emerald-100 transition-all ease-in-out duration-300 xs:py-1.5"
+      >
+        <i class="bi bi-google mr-1 text-blue-500"></i>
+        Log in with Google
+      </button>
+    </div>
+
+    <div class="grid grid-cols-5 items-center">
+      <div class="col-span-2">
+        <hr />
+      </div>
+      <p class="text-center font-bold xs:text-sm">OR</p>
+      <div class="col-span-2">
+        <hr />
+      </div>
+    </div>
+
+    <form class="my-5" [formGroup]="loginForm" (ngSubmit)="submitLogin()">
+      <div class="flex flex-col gap-y-1 mb-3 mt-2">
+        <label for="email" class="xs:text-sm">Email :</label>
+        <div class="relative">
+          <input
+            type="email"
+            id="email"
+            class="w-full border border-gray-300 py-2 rounded-lg placeholder:text-center pl-10 placeholder:text-sm xs:placeholder:text-xs"
+            formControlName="email"
+            placeholder="please enter your username"
+          />
+          <span
+            class="absolute top-1/2 -translate-y-1/2 left-1 ps-3 text-gray-400"
+          >
+            <i class="bi bi-envelope-at"></i>
+          </span>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-y-1 mt-3 mb-2">
+        <label for="password" class="xs:text-sm">Password</label>
+        <div class="relative">
+          <input
+            type="password"
+            id="password"
+            class="w-full border border-gray-300 py-2 rounded-lg placeholder:text-center pl-10 placeholder:text-sm xs:placeholder:text-xs"
+            formControlName="password"
+            placeholder="please enter your password"
+          />
+          <span
+            class="absolute top-1/2 -translate-y-1/2 left-1 ps-3 text-gray-400"
+          >
+            <i class="bi bi-shield-lock"></i>
+          </span>
+        </div>
+      </div>
+
+      <div
+        class="text-sm my-2 py-2 flex justify-between items-center xs:text-xs xs:py-0.5"
+      >
+        <div class="gap-x-2 flex justify-between items-center">
+          <input type="checkbox" id="rememberme" class="cursor-pointer" />
+          <label for="rememberme" class="cursor-pointer">Remember Me</label>
+        </div>
+        <a href="" class="text-emerald-500">Forget password?</a>
+      </div>
+
+      <button
+        class="transition duration-150 ease-in-out py-2 text-base font-semibold rounded-lg text-center border w-full bg-emerald-600 border-emerald-600 text-white hover:bg-emerald-800 hover:border-emerald-800 inline-block xs:py-1 xs:text-sm"
+      >
+        Sign in
+      </button>
+    </form>
+
+    <div class="text-sm text-gray-400 text-center xs:text-xs">
+      <p>
+        Don't have any account?..
+        <a [routerLink]="'/products'" class="text-emerald-600"> Get Out</a>
+        now!
+      </p>
+    </div>
+  </div>
+</div>

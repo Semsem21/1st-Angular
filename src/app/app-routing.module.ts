@@ -4,7 +4,7 @@ import { AllProductsComponent } from './public/products/all-products/all-product
 import { ProductDetailsComponent } from './public/products/product-details/product-details.component';
 import { CartComponent } from './public/cart/cart.component';
 import { HomeComponent } from './shared/home/home.component';
-import { LoginComponent } from './auth/login/login.component';
+import { LoginComponent } from './admin/login/login.component';
 import { FullPageComponent } from './admin/full-page/full-page.component';
 import { AuthGuard } from './auth/auth.guard';
 
